@@ -3,13 +3,6 @@
 
 int hashTable[SIZE];
 
-void initialize()
-{
-    int i;
-    for (i = 0; i < SIZE; i++)
-        hashTable[i] = -1;
-}
-
 void insert(int key)
 {
     int index, i;
@@ -23,12 +16,12 @@ void insert(int key)
         if (hashTable[pos] == -1)
         {
             hashTable[pos] = key;
-            printf("Element inserted successfully\n");
+            printf("Element inserted\n");
             return;
         }
     }
 
-    printf("Hash table is full\n");
+    printf("Hash Table is Full\n");
 }
 
 void search(int key)
@@ -62,20 +55,19 @@ void display()
 
     for (i = 0; i < SIZE; i++)
     {
-        printf("%d --> ", i);
-
         if (hashTable[i] == -1)
-            printf("Empty\n");
+            printf("%d : Empty\n", i);
         else
-            printf("%d\n", hashTable[i]);
+            printf("%d : %d\n", i, hashTable[i]);
     }
 }
 
 int main()
 {
-    int choice, key;
+    int i, choice, key;
 
-    initialize();
+    for (i = 0; i < SIZE; i++)
+        hashTable[i] = -1;
 
     while (1)
     {
@@ -83,7 +75,6 @@ int main()
         printf("\n2. Search");
         printf("\n3. Display");
         printf("\n4. Exit");
-
         printf("\nEnter choice: ");
         scanf("%d", &choice);
 
